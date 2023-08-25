@@ -1,3 +1,7 @@
+import openai
+import requests
+import json
+
 def insert_into_notion(data, notion_api_key, database_id):
     url = f"https://api.notion.com/v1/pages"
     headers = {

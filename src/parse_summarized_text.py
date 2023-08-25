@@ -1,3 +1,6 @@
+import openai
+import requests
+import json
 def parse_summarized_text(summarized_text):
     lines = summarized_text.split('\n')
     parsed_data = {}

@@ -1,3 +1,6 @@
+import openai
+import requests
+import json
 
 # Function to summarize text using GPT-3.5
 def summarize_text_with_gpt35(text, api_key):
