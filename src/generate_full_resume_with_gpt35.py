@@ -105,7 +105,7 @@ def upload_to_github(file_path, repo_name, github_token):
         branch="trunk"  # Replace with the branch you want to upload to
     )
 
-    return f"https://github.com/{repo.full_name}/blob/trunk/{os.path.basename(file_path)}"
+    return f"https://github.com/{repo.full_name}/blob/trunk/{file_path}"
 
 
 
