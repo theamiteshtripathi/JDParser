@@ -99,7 +99,7 @@ def upload_to_github(file_path, repo_name, github_token):
 
     # Upload the file
     repo.create_file(
-        path=os.path.basename(file_path),  # Use the basename of the file to remove any directory info
+        path=file_path,  # Use the basename of the file to remove any directory info
         message="Add tailored resume", 
         content=content,
         branch="trunk"  # Replace with the branch you want to upload to
