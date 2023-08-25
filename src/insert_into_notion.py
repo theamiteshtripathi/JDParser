@@ -1,4 +1,3 @@
-import openai
 import requests
 import json
 
@@ -15,12 +14,26 @@ def insert_into_notion(data, notion_api_key, database_id):
     }
 
     for key, value in data.items():
-        # Use "title" type for "Job Post" and "rich_text" for all other fields
-        field_type = "title" if key == "Job Title" else "rich_text"
-        payload["properties"][key] = {
-            "type": field_type,
-            field_type: [{"text": {"content": value}}]
-        }
+        # Differentiate field type based on the key
+        if key == "Job Title":
+            field_type = "title"
+        elif key == "Job Link":
+            field_type = "url"
+        else:
+            field_type = "rich_text"
+
+        if field_type == "url":
+            # For URL type
+            payload["properties"][key] = {
+                "type": field_type,
+                field_type: value
+            }
+        else:
+            # For title and rich_text types
+            payload["properties"][key] = {
+                "type": field_type,
+                field_type: [{"text": {"content": value}}]
+            }
 
     print("Sending the following payload:")
     print(json.dumps(payload, indent=4))

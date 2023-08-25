@@ -3,12 +3,12 @@ import requests
 import json
 
 # Function to summarize text using GPT-3.5
-def summarize_text_with_gpt35(text, api_key):
+def summarize_text_with_gpt35(jdtext,resumetext, api_key):
     openai.api_key = api_key
     response = openai.Completion.create(
         engine="text-davinci-002",
         prompt=f"""Please extract the following details from the job description below:Job Description:
-                    {text}
+                    {jdtext}
 
                     Job Title:
                     Years of Work Experience Required:
@@ -29,4 +29,3 @@ def summarize_text_with_gpt35(text, api_key):
     )
     summarized_text = response.choices[0].text.strip()
     return summarized_text
-
