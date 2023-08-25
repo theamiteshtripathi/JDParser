@@ -1,7 +1,7 @@
 import openai
 import requests
 import json
-def parse_summarized_text(summarized_text, curated_bullets, job_link):
+def parse_summarized_text(summarized_text, github_url, job_link):
     lines = summarized_text.split('\n')
     parsed_data = {}
     current_field = ""
@@ -20,6 +20,6 @@ def parse_summarized_text(summarized_text, curated_bullets, job_link):
         
         # Add the job link to the parsed data
         parsed_data['Job Link'] = job_link
-        parsed_data["Resume Bullets"] = curated_bullets
+        parsed_data["Tailored Resume"] = github_url
 
     return parsed_data

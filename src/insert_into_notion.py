@@ -19,6 +19,8 @@ def insert_into_notion(data, notion_api_key, database_id):
             field_type = "title"
         elif key == "Job Link":
             field_type = "url"
+        elif key == "Tailored Resume":
+            field_type = "url"
         else:
             field_type = "rich_text"
 
