@@ -86,27 +86,6 @@ def generate_full_resume_with_gpt35(jdtext, resumetext, api_key):
     doc.save(full_path)
     return full_path
 
-'''def upload_to_github(file_path, repo_name, github_token):
-    # Initialize GitHub API
-    g = Github(github_token)
-
-    # Get the repository
-    repo = g.get_user().get_repo(repo_name)
-    
-    # Read the file and encode it into base64
-    with open(file_path, "rb") as f:
-        content = f.read()
-    content_base64 = base64.b64encode(content)
-    
-    # Upload the file
-    repo.create_file(
-        path=file_path, 
-        message="Add tailored resume", 
-        content=content_base64.decode("utf-8"),
-        branch="trunk"  # Replace with the branch you want to upload to
-    )
-    return f"https://github.com/{repo.full_name}/blob/trunk/{file_path}"
-'''
 def upload_to_github(file_path, repo_name, github_token):
     # Initialize GitHub API
     g = Github(github_token)
