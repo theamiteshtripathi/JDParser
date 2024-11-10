@@ -1,5 +1,9 @@
-requests
-nltk
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+streamlit
+python-dotenv
 openai
 python-docx
 PyGithub
+requests

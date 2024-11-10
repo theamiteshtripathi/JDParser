@@ -13,7 +13,7 @@ def read_resume_from_docx(file_path):
     return '\n'.join(full_text)
 
 # Function to read or upload a resume
-def read_or_upload_resume(file_path="docs/Amitesh Tripathi Resume Aug 15.docx"):
+def read_or_upload_resume(file_path="docs/Amitesh_Tripathi_Resume.docx"):
     if os.path.exists(file_path):
         stored_resume = read_resume_from_docx(file_path)  # Use read_resume_from_docx here
         

@@ -1,7 +1,8 @@
 import openai
 import requests
 import json
-from src.insert_into_notion import insert_into_notion
+from src.insert_into_sheets import GoogleSheetsManager
+from src.config import GOOGLE_SHEETS_CONFIG
 from src.parse_summarized_text import parse_summarized_text
 from src.summarize_text_with_gpt35 import summarize_text_with_gpt35
 from src.generate_full_resume_with_gpt35 import read_or_upload_resume
@@ -11,12 +12,13 @@ from src.generate_full_resume_with_gpt35 import upload_to_github
 
 # Main function
 def main():
-    # API keys and database ID
-    openai_api_key = "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"
-    notion_api_key = "secret_uKSFFPco2C0ZT9yzZXSCN2GbDdShpEOkfjYNd6bEzIe"
-    database_id = "6ad8aedf97634b94b79ecc0943398158"
-    github_token = "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"
+    # API keys
+    openai_api_key = "your_openai_key"
+    github_token = "your_github_token"
     repo_name = "JDParser"
+
+    # Initialize Google Sheets manager
+    sheets_manager = GoogleSheetsManager(GOOGLE_SHEETS_CONFIG['CREDENTIALS_PATH'])
 
     resume_data = read_or_upload_resume()
     print("Resume data successfully read!!!")
@@ -55,9 +57,15 @@ def main():
     parsed_data = parse_summarized_text(summarized_text, github_url, job_link)
     print("Parsed Data:", parsed_data)
     
-    # Insert the parsed details into the Notion database
-    response = insert_into_notion(parsed_data, notion_api_key, database_id)
-    print("Data successfully inserted into Notion:", response)
+    # Instead of inserting into Notion, insert into Google Sheets
+    try:
+        response = sheets_manager.insert_job_data(
+            GOOGLE_SHEETS_CONFIG['SPREADSHEET_ID'],
+            parsed_data
+        )
+        print("Data successfully inserted into Google Sheets:", response)
+    except Exception as e:
+        print(f"Failed to insert data into Google Sheets: {str(e)}")
 
 if __name__ == "__main__":
     main()
