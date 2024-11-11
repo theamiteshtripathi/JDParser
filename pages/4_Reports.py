@@ -3,6 +3,7 @@ from fpdf import FPDF
 import tempfile
 from datetime import datetime
 from src.utils.logger import get_logger
+import pandas as pd
 
 logger = get_logger(__name__)
 
@@ -50,27 +51,44 @@ def generate_pdf_report():
 def main():
     st.title("📊 Career Progress Report")
     
-    # Report Options
-    st.header("Generate Report")
-    include_profile = st.checkbox("Include Profile Information", value=True)
-    include_applications = st.checkbox("Include Job Applications", value=True)
+    if 'job_applications' not in st.session_state or not isinstance(st.session_state.job_applications, pd.DataFrame):
+        st.warning("No job applications data available. Please add some applications first!")
+        if st.button("Go to Job Tracking"):
+            st.switch_page("pages/3_Job_Tracking.py")
+        return
     
-    if st.button("🔄 Generate Report"):
-        try:
-            with st.spinner("Generating report..."):
-                report_path = generate_pdf_report()
-                
-                with open(report_path, "rb") as file:
-                    st.download_button(
-                        "📥 Download Report",
-                        file,
-                        f"CareerForge_Report_{datetime.now().strftime('%Y%m%d')}.pdf",
-                        "application/pdf"
-                    )
-            st.success("Report generated successfully!")
-        except Exception as e:
-            logger.error(f"Report generation failed: {str(e)}")
-            st.error("Failed to generate report")
+    # Display Statistics
+    if not st.session_state.job_applications.empty:
+        col1, col2 = st.columns(2)
+        with col1:
+            st.metric("Total Applications", len(st.session_state.job_applications))
+        with col2:
+            status_counts = st.session_state.job_applications['Status'].value_counts()
+            st.metric("Interview Rate", 
+                     f"{(status_counts.get('Interview Scheduled', 0) / len(st.session_state.job_applications) * 100):.1f}%")
+        
+        # Status Distribution
+        st.subheader("Application Status Distribution")
+        st.bar_chart(status_counts)
+        
+        # Generate PDF Report
+        if st.button("📄 Generate PDF Report"):
+            try:
+                with st.spinner("Generating report..."):
+                    report_path = generate_pdf_report()
+                    with open(report_path, "rb") as file:
+                        st.download_button(
+                            "📥 Download Report",
+                            file,
+                            f"CareerForge_Report_{datetime.now().strftime('%Y%m%d')}.pdf",
+                            "application/pdf"
+                        )
+                st.success("Report generated successfully!")
+            except Exception as e:
+                logger.error(f"Report generation failed: {str(e)}")
+                st.error("Failed to generate report")
+    else:
+        st.info("Add some job applications to generate reports!")
 
 if __name__ == "__main__":
     main()
