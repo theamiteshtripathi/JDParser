@@ -1,0 +1,3 @@
+2024-11-10 18:45:32,460 - Assistants.CareerForge.assistant_handler - INFO - Creating CareerForge AI assistant
+2024-11-10 18:45:32,766 - Assistants.CareerForge.assistant_handler - INFO - Assistant created successfully with ID: asst_tV6erYkDzXrQPAaKHIRT29Of
+2024-11-10 18:45:32,766 - __main__ - INFO - Assistant initialized with ID: asst_tV6erYkDzXrQPAaKHIRT29Of

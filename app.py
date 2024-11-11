@@ -1,101 +1,99 @@
 import streamlit as st
-import openai
-import requests
-import json
-import os
-from docx import Document
-from github import Github
-from src.summarize_text_with_gpt35 import summarize_text_with_gpt35
-from src.parse_summarized_text import parse_summarized_text
-from src.generate_full_resume_with_gpt35 import generate_full_resume_with_gpt35, read_resume_from_docx, upload_to_github
+from Assistants.CareerForge.assistant_handler import CareerForgeAssistant
+from src.utils.logger import get_logger
+
+logger = get_logger(__name__)
+
+def initialize_session_state():
+    if 'assistant' not in st.session_state:
+        try:
+            assistant = CareerForgeAssistant()
+            st.session_state.assistant = assistant
+            logger.info("Assistant initialized in session state")
+        except Exception as e:
+            logger.error(f"Error initializing assistant: {str(e)}")
+            st.error(f"Failed to initialize assistant: {str(e)}")
+    
+    # Initialize other session state variables
+    if 'user_info' not in st.session_state:
+        st.session_state.user_info = {}
+    if 'resume_info' not in st.session_state:
+        st.session_state.resume_info = None
+    if 'job_applications' not in st.session_state:
+        st.session_state.job_applications = []
 
 def main():
-    st.set_page_config(page_title="CareerForge AI", page_icon="📑", layout="wide")
+    st.set_page_config(
+        page_title="CareerForge AI",
+        page_icon="🚀",
+        layout="wide"
+    )
     
-    # Add custom CSS
-    st.markdown("""
-        <style>
-        .main {
-            padding: 2rem;
-        }
-        .stButton>button {
-            width: 100%;
-            background-color: #FF4B4B;
-            color: white;
-        }
-        </style>
-    """, unsafe_allow_html=True)
+    initialize_session_state()
     
-    # Title and Description
-    st.title("🚀 CareerForge AI")
-    st.markdown("### Your AI-powered Job Application Assistant")
+    st.title("🚀 Welcome to CareerForge AI")
     
-    # Sidebar for API Keys
-    with st.sidebar:
-        st.header("Configuration")
-        openai_api_key = st.text_input("OpenAI API Key", type="password")
-        notion_api_key = st.text_input("Notion API Key", type="password")
-        database_id = st.text_input("Notion Database ID")
-        github_token = st.text_input("GitHub Token", type="password")
-        repo_name = st.text_input("GitHub Repo Name", value="JDParser")
-        
-    # Main content area
-    col1, col2 = st.columns(2)
+    # User Profile Section
+    st.header("👤 Complete Your Profile")
+    with st.form("user_profile"):
+        col1, col2 = st.columns(2)
+        with col1:
+            name = st.text_input("Full Name", st.session_state.user_info.get('name', ''))
+            email = st.text_input("Email", st.session_state.user_info.get('email', ''))
+            
+        with col2:
+            industry = st.selectbox(
+                "Preferred Industry",
+                ["Technology", "Finance", "Healthcare", "Education", "Other"],
+                index=0 if not st.session_state.user_info.get('industry') else 0
+            )
+            experience = st.selectbox(
+                "Years of Experience",
+                ["0-2", "3-5", "5-10", "10+"],
+                index=0 if not st.session_state.user_info.get('experience') else 0
+            )
+            
+        submit = st.form_submit_button("Save Profile")
+        if submit:
+            st.session_state.user_info = {
+                'name': name,
+                'email': email,
+                'industry': industry,
+                'experience': experience
+            }
+            st.success("Profile saved successfully!")
+    
+    # Quick Navigation
+    st.header("🎯 What would you like to do?")
+    col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.subheader("📄 Resume Upload")
-        uploaded_resume = st.file_uploader("Upload your resume (DOCX format)", type=['docx'])
-        
-        if uploaded_resume:
-            # Save the uploaded file temporarily
-            with open("temp_resume.docx", "wb") as f:
-                f.write(uploaded_resume.getbuffer())
-            resume_data = read_resume_from_docx("temp_resume.docx")
-            st.success("Resume uploaded successfully!")
+        st.info("💭 Career Guidance")
+        st.write("Get personalized career advice and guidance")
+        if st.button("Start Career Consultation"):
+            st.switch_page("pages/1_Career_Guidance.py")
             
-        st.subheader("🔗 Job Details")
-        job_link = st.text_input("Job Posting URL")
-        job_description = st.text_area("Job Description", height=300)
-        
-        if st.button("Process Job Application"):
-            if not all([openai_api_key, notion_api_key, database_id, github_token, uploaded_resume, job_description]):
-                st.error("Please fill in all required fields!")
-            else:
-                with st.spinner("Processing your application..."):
-                    try:
-                        # Summarize job description
-                        summarized_text = summarize_text_with_gpt35(job_description, openai_api_key)
-                        
-                        # Generate tailored resume
-                        tailored_resume_path = generate_full_resume_with_gpt35(
-                            job_description, resume_data, openai_api_key)
-                        
-                        # Upload to GitHub
-                        github_url = upload_to_github(tailored_resume_path, repo_name, github_token)
-                        
-                        # Parse and save to Notion
-                        parsed_data = parse_summarized_text(summarized_text, github_url, job_link)
-                        response = insert_into_notion(parsed_data, notion_api_key, database_id)
-                        
-                        st.success("Application processed successfully!")
-                        
-                    except Exception as e:
-                        st.error(f"An error occurred: {str(e)}")
-    
     with col2:
-        st.subheader("📊 Results")
-        if 'parsed_data' in locals():
-            st.json(parsed_data)
+        st.info("📝 Resume Analysis")
+        st.write("Upload and analyze your resume for improvements")
+        if st.button("Analyze Resume"):
+            st.switch_page("pages/2_Resume_Analysis.py")
             
-            st.subheader("🎯 Tailored Resume")
-            if os.path.exists(tailored_resume_path):
-                with open(tailored_resume_path, "rb") as file:
-                    st.download_button(
-                        label="Download Tailored Resume",
-                        data=file,
-                        file_name="tailored_resume.docx",
-                        mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                    )
+    with col3:
+        st.info("📊 Job Application Tracking")
+        st.write("Track your job applications and progress")
+        if st.button("Track Applications"):
+            st.switch_page("pages/3_Job_Tracking.py")
+    
+    # Getting Started Guide
+    with st.expander("📚 Getting Started Guide"):
+        st.markdown("""
+        1. **Complete Your Profile**: Add your basic information
+        2. **Upload Your Resume**: Go to Resume Analysis page
+        3. **Start Job Tracking**: Add job applications to track
+        4. **Get Guidance**: Chat with AI for career advice
+        5. **Generate Reports**: Track your progress
+        """)
 
 if __name__ == "__main__":
     main()

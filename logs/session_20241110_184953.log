@@ -1,0 +1,3 @@
+2024-11-10 18:49:54,270 - __main__ - INFO - Assistant initialized in session state
+2024-11-10 18:50:59,664 - Assistants.CareerForge.assistant_handler - INFO - Processing chat input: tell me anything about my resume
+2024-11-10 18:51:03,190 - Assistants.CareerForge.assistant_handler - INFO - Chat response generated successfully

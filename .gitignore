@@ -3,6 +3,9 @@ credentials.json
 .env
 .streamlit/secrets.toml
 
+# Cursor
+.cursorignore
+    
 # Python
 __pycache__/
 *.py[cod]
