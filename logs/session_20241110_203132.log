@@ -1,0 +1,26 @@
+2024-11-10 20:31:45,971 - api.routes.job_routes - ERROR - Invalid JSON response from assistant: Here is the extracted information from the job posting in JSON format:
+
+```json
+{
+    "Title": "N/A",
+    "Company": "N/A",
+    "Description": "N/A",
+    "URL": "https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4068518454&discover=recommended%2Ctop-applicant%2Ccompany-recommended&discoveryOrigin=JOBS_HOME_COMPETITIVE_ADVANTAGE_JOB_COLLECTIONS"
+}
+```
+
+It seems that the specific details like Title, Company, and Description were not available in the request. Please provide the details if you have them, or I can assist you further in analyzing the job posting if needed.
+2024-11-10 20:31:45,972 - api.routes.job_routes - ERROR - Error parsing job: 500: Failed to parse assistant response
+2024-11-10 20:35:16,862 - api.routes.job_routes - ERROR - Invalid JSON response from assistant: Here is the extracted job posting details in JSON format:
+
+```json
+{
+    "Title": "",
+    "Company": "",
+    "Description": "",
+    "URL": "https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4068539783&discover=recommended%2Ctop-applicant%2Ccompany-recommended&discoveryOrigin=JOBS_HOME_COMPETITIVE_ADVANTAGE_JOB_COLLECTIONS"
+}
+```
+
+The fields for "Title," "Company," and "Description" are currently empty, as no specific details were provided. If you have a specific job description text or additional details, please provide them for a more complete extraction.
+2024-11-10 20:35:16,862 - api.routes.job_routes - ERROR - Error parsing job: 500: Failed to parse assistant response

@@ -1,0 +1,11 @@
+2024-11-10 21:18:08,610 - Assistants.CareerForge.assistant_handler - INFO - Processing chat input: 
+        Please analyze this job posting and format as JSON:
+        Title: Not found
+        Company: Not found
+        Location: Not found
+        Link: Not found
+        Keywords: Not found
+        Salary: Not mentioned
+        Notes: Not found
+        
+2024-11-10 21:18:13,384 - Assistants.CareerForge.assistant_handler - INFO - Chat response generated successfully

@@ -1,0 +1,1 @@
+2024-11-10 21:47:14,709 - __main__ - ERROR - Chat error: st.session_state has no attribute "assistant". Did you forget to initialize it? More info: https://docs.streamlit.io/develop/concepts/architecture/session-state#initialization

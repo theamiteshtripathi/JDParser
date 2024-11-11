@@ -1,0 +1,42 @@
+2024-11-10 20:56:17,888 - api.routes.job_routes - ERROR - Error extracting job details: Message: 
+Stacktrace:
+0   chromedriver                        0x000000010537d5dc cxxbridge1$str$ptr + 3653648
+1   chromedriver                        0x0000000105375e3c cxxbridge1$str$ptr + 3623024
+2   chromedriver                        0x0000000104de0100 cxxbridge1$string$len + 88404
+3   chromedriver                        0x0000000104e2241c cxxbridge1$string$len + 359536
+4   chromedriver                        0x0000000104e5bba8 cxxbridge1$string$len + 594940
+5   chromedriver                        0x0000000104e170fc cxxbridge1$string$len + 313680
+6   chromedriver                        0x0000000104e17d4c cxxbridge1$string$len + 316832
+7   chromedriver                        0x000000010534864c cxxbridge1$str$ptr + 3436672
+8   chromedriver                        0x000000010534b988 cxxbridge1$str$ptr + 3449788
+9   chromedriver                        0x000000010532fa5c cxxbridge1$str$ptr + 3335312
+10  chromedriver                        0x000000010534c24c cxxbridge1$str$ptr + 3452032
+11  chromedriver                        0x0000000105320ce8 cxxbridge1$str$ptr + 3274524
+12  chromedriver                        0x00000001053669dc cxxbridge1$str$ptr + 3560464
+13  chromedriver                        0x0000000105366b58 cxxbridge1$str$ptr + 3560844
+14  chromedriver                        0x0000000105375ad4 cxxbridge1$str$ptr + 3622152
+15  libsystem_pthread.dylib             0x0000000189d3f2e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000189d3a0fc thread_start + 8
+
+2024-11-10 20:56:17,889 - api.routes.job_routes - ERROR - Error parsing job: 500: Failed to extract job details
+2024-11-10 20:56:49,511 - api.routes.job_routes - ERROR - Error extracting job details: Message: 
+Stacktrace:
+0   chromedriver                        0x00000001008d55dc cxxbridge1$str$ptr + 3653648
+1   chromedriver                        0x00000001008cde3c cxxbridge1$str$ptr + 3623024
+2   chromedriver                        0x0000000100338100 cxxbridge1$string$len + 88404
+3   chromedriver                        0x000000010037a41c cxxbridge1$string$len + 359536
+4   chromedriver                        0x00000001003b3ba8 cxxbridge1$string$len + 594940
+5   chromedriver                        0x000000010036f0fc cxxbridge1$string$len + 313680
+6   chromedriver                        0x000000010036fd4c cxxbridge1$string$len + 316832
+7   chromedriver                        0x00000001008a064c cxxbridge1$str$ptr + 3436672
+8   chromedriver                        0x00000001008a3988 cxxbridge1$str$ptr + 3449788
+9   chromedriver                        0x0000000100887a5c cxxbridge1$str$ptr + 3335312
+10  chromedriver                        0x00000001008a424c cxxbridge1$str$ptr + 3452032
+11  chromedriver                        0x0000000100878ce8 cxxbridge1$str$ptr + 3274524
+12  chromedriver                        0x00000001008be9dc cxxbridge1$str$ptr + 3560464
+13  chromedriver                        0x00000001008beb58 cxxbridge1$str$ptr + 3560844
+14  chromedriver                        0x00000001008cdad4 cxxbridge1$str$ptr + 3622152
+15  libsystem_pthread.dylib             0x0000000189d3f2e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000189d3a0fc thread_start + 8
+
+2024-11-10 20:56:49,513 - api.routes.job_routes - ERROR - Error parsing job: 500: Failed to extract job details

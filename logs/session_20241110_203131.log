@@ -1,0 +1,20 @@
+2024-11-10 20:31:39,176 - Assistants.CareerForge.assistant_handler - INFO - Processing chat input: 
+        Please analyze this job posting and extract details in JSON format:
+        Title: 
+        Company: 
+        Description: 
+        URL: https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4068518454&discover=recommended%2Ctop-applicant%2Ccompany-recommended&discoveryOrigin=JOBS_HOME_COMPETITIVE_ADVANTAGE_JOB_COLLECTIONS
+        
+        Remember to return a valid JSON object with the exact fields specified in your instructions.
+        
+2024-11-10 20:31:45,967 - Assistants.CareerForge.assistant_handler - INFO - Chat response generated successfully
+2024-11-10 20:35:09,992 - Assistants.CareerForge.assistant_handler - INFO - Processing chat input: 
+        Please analyze this job posting and extract details in JSON format:
+        Title: 
+        Company: 
+        Description: 
+        URL: https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4068539783&discover=recommended%2Ctop-applicant%2Ccompany-recommended&discoveryOrigin=JOBS_HOME_COMPETITIVE_ADVANTAGE_JOB_COLLECTIONS
+        
+        Remember to return a valid JSON object with the exact fields specified in your instructions.
+        
+2024-11-10 20:35:16,841 - Assistants.CareerForge.assistant_handler - INFO - Chat response generated successfully

@@ -1,0 +1,1 @@
+2024-11-10 20:11:46,242 - src.utils.data_store - ERROR - Failed to load from Google Sheets: <HttpError 400 when requesting https://sheets.googleapis.com/v4/spreadsheets/1nDsC9xbbR9LSWUUmwIXKgn3qFNImjOpfbrCPKcMSE8I/values/Applications%21A%3AG?alt=json returned "Unable to parse range: Applications!A:G". Details: "Unable to parse range: Applications!A:G">

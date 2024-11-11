@@ -1,0 +1,13 @@
+2024-11-10 20:38:24,294 - Assistants.CareerForge.assistant_handler - INFO - Processing chat input: 
+        Analyze this job posting URL and return ONLY a JSON object with these exact fields:
+        {
+            "job_title": "Not mentioned",
+            "company": "Not mentioned",
+            "location": "Not mentioned",
+            "job_link": "https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4068539783&discover=recommended%2Ctop-applicant%2Ccompany-recommended&discoveryOrigin=JOBS_HOME_COMPETITIVE_ADVANTAGE_JOB_COLLECTIONS",
+            "keywords": "Not mentioned",
+            "salary_range": "Not mentioned",
+            "notes": "Not mentioned"
+        }
+        
+2024-11-10 20:38:40,712 - Assistants.CareerForge.assistant_handler - INFO - Chat response generated successfully

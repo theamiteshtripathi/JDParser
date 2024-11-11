@@ -1,0 +1,8 @@
+2024-11-10 20:29:54,153 - Assistants.CareerForge.assistant_handler - INFO - Processing chat input: 
+        Please analyze this job posting and extract details:
+        Title: 
+        Company: 
+        Description: 
+        URL: https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4068518454&discover=recommended%2Ctop-applicant%2Ccompany-recommended&discoveryOrigin=JOBS_HOME_COMPETITIVE_ADVANTAGE_JOB_COLLECTIONS
+        
+2024-11-10 20:29:58,257 - Assistants.CareerForge.assistant_handler - INFO - Chat response generated successfully

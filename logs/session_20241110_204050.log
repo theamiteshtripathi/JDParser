@@ -1,0 +1,72 @@
+2024-11-10 20:41:41,546 - Assistants.CareerForge.assistant_handler - INFO - Processing chat input: 
+        Analyze this job posting and return a JSON object. 
+        IMPORTANT: Your response must ONLY contain a valid JSON object, no additional text.
+        
+        Use this exact format:
+        {
+            "job_title": "Not mentioned",
+            "company": "Not mentioned",
+            "location": "Not mentioned",
+            "job_link": "URL",
+            "keywords": "Not mentioned",
+            "salary_range": "Not mentioned",
+            "notes": "Not mentioned"
+        }
+
+        Job URL: https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4068539783&discover=recommended%2Ctop-applicant%2Ccompany-recommended&discoveryOrigin=JOBS_HOME_COMPETITIVE_ADVANTAGE_JOB_COLLECTIONS
+        
+2024-11-10 20:41:49,171 - Assistants.CareerForge.assistant_handler - INFO - Chat response generated successfully
+2024-11-10 20:42:18,927 - Assistants.CareerForge.assistant_handler - INFO - Processing chat input: 
+        Analyze this job posting and return a JSON object. 
+        IMPORTANT: Your response must ONLY contain a valid JSON object, no additional text.
+        
+        Use this exact format:
+        {
+            "job_title": "Not mentioned",
+            "company": "Not mentioned",
+            "location": "Not mentioned",
+            "job_link": "URL",
+            "keywords": "Not mentioned",
+            "salary_range": "Not mentioned",
+            "notes": "Not mentioned"
+        }
+
+        Job URL: https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4068539783&discover=recommended%2Ctop-applicant%2Ccompany-recommended&discoveryOrigin=JOBS_HOME_COMPETITIVE_ADVANTAGE_JOB_COLLECTIONS
+        
+2024-11-10 20:42:26,542 - Assistants.CareerForge.assistant_handler - INFO - Chat response generated successfully
+2024-11-10 20:45:24,257 - Assistants.CareerForge.assistant_handler - INFO - Processing chat input: 
+        Analyze this job posting and return a JSON object. 
+        IMPORTANT: Your response must ONLY contain a valid JSON object, no additional text.
+        
+        Use this exact format:
+        {
+            "job_title": "Not mentioned",
+            "company": "Not mentioned",
+            "location": "Not mentioned",
+            "job_link": "URL",
+            "keywords": "Not mentioned",
+            "salary_range": "Not mentioned",
+            "notes": "Not mentioned"
+        }
+
+        Job URL: https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4068539783&discover=recommended%2Ctop-applicant%2Ccompany-recommended&discoveryOrigin=JOBS_HOME_COMPETITIVE_ADVANTAGE_JOB_COLLECTIONS
+        
+2024-11-10 20:45:29,280 - Assistants.CareerForge.assistant_handler - INFO - Chat response generated successfully
+2024-11-10 20:45:42,361 - Assistants.CareerForge.assistant_handler - INFO - Processing chat input: 
+        Analyze this job posting and return a JSON object. 
+        IMPORTANT: Your response must ONLY contain a valid JSON object, no additional text.
+        
+        Use this exact format:
+        {
+            "job_title": "Not mentioned",
+            "company": "Not mentioned",
+            "location": "Not mentioned",
+            "job_link": "URL",
+            "keywords": "Not mentioned",
+            "salary_range": "Not mentioned",
+            "notes": "Not mentioned"
+        }
+
+        Job URL: https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4068539783&discover=recommended%2Ctop-applicant%2Ccompany-recommended&discoveryOrigin=JOBS_HOME_COMPETITIVE_ADVANTAGE_JOB_COLLECTIONS
+        
+2024-11-10 20:45:50,714 - Assistants.CareerForge.assistant_handler - INFO - Chat response generated successfully

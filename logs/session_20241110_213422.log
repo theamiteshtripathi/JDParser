@@ -1,0 +1,25 @@
+2024-11-10 21:36:20,640 - Assistants.CareerForge.assistant_handler - INFO - Processing chat input: 
+        Please analyze this job posting and return a JSON response with these exact fields:
+        - job_title
+        - company
+        - location
+        - job_link
+        - keywords
+        - salary_range
+        - notes
+
+        Job Details:
+        {
+  "job_title": "Not found",
+  "company": "Not found",
+  "location": "Not found",
+  "job_link": "Not found",
+  "keywords": "Not found",
+  "salary_range": "Not mentioned",
+  "notes": "Not found"
+}
+        
+2024-11-10 21:36:24,513 - Assistants.CareerForge.assistant_handler - INFO - Chat response generated successfully
+2024-11-10 21:36:24,514 - api.routes.job_routes - INFO - Parsed response: It seems that the job posting information is incomplete, as all fields are labeled as "Not found." To provide a thorough analysis, I will need the actual job posting details. 
+
+Please provide the job description, including relevant information, so I can extract and format the required fields appropriately.

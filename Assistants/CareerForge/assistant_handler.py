@@ -59,7 +59,7 @@ class CareerForgeAssistant:
                     assistant = self.client.beta.assistants.create(
                         name=self.assistant_name,
                         instructions=instructions,
-                        model="gpt-4o-mini",
+                        model="gpt-3.5-turbo-1106",
                         tools=[
                             {"type": "code_interpreter"},
                             {"type": "file_search"}

@@ -1,0 +1,29 @@
+.container {
+  width: 400px;
+  padding: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+.job-info {
+  margin: 16px 0;
+  padding: 12px;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 8px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #45a049;
+}

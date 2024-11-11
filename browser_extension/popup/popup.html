@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CareerForge Job Tracker</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CareerForge Job Tracker</h1>
+        <div id="jobDetails" class="job-info hidden">
+            <h2>Job Details</h2>
+            <div id="jobContent"></div>
+            <button id="trackButton">Track This Job</button>
+        </div>
+        <div id="loadingState" class="hidden">
+            <p>Analyzing job posting...</p>
+        </div>
+        <div id="errorState" class="hidden">
+            <p>Error analyzing job. Please try again.</p>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
